@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8529d2f8_05bd1618",
+        "filename": "ci/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2019-08-15T12:35:10Z",
+      "side": 1,
+      "message": "You might consider using one of the builder images I maintain for the RIC project.  This will speed up the build, because the build tools are preinstalled.  With that said, I might have missed rpm/alien, happy to add those if you like.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 2
+      },
+      "revId": "de087cea377a0fc38a651454326eb59ba08cbfd7",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53",
+      "unresolved": true
+    }
+  ]
+}
