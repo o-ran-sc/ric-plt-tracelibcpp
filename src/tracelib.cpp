@@ -21,8 +21,8 @@
 
 std::shared_ptr<opentracing::Tracer> tracelibcpp::createTracer(std::string serviceName)
 {
-    auto config = jaegertracing::Config(false,
-                jaegertracing::samplers::Config("const", 1));
+    auto config = jaegertracing::Config(true,
+                jaegertracing::samplers::Config("const", 0));
     return jaegertracing::Tracer::make(serviceName, config,  jaegertracing::logging::consoleLogger());
 }
 
