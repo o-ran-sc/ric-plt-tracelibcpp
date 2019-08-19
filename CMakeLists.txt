@@ -30,6 +30,15 @@ HunterGate(
 
 project(tracelibcpp LANGUAGES CXX C)
 set(CMAKE_TOOLCHAIN_FILE ${CMAKE_SOURCE_DIR}/cmake/cxx1.cmake)
+add_compile_options(-Wall -Wextra -Werror)
+set(CMAKE_CXX_STANDARD 11)
+
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+
+set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
+set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 
 set (tracelibcpp_VERSION_MAJOR "0")
 set (tracelibcpp_VERSION_MINOR "0")
@@ -79,16 +88,14 @@ add_library(tracelibcpp SHARED
     src/tracelib.cpp
 )
 
-option(WITH_VERSION "Support for library versioning" ON)
+# Library versions are on by default
+# i.e. so versions
+option(WITH_VERSION "Support for library versioning" ONC)
 
 if (WITH_VERSION)
     set_target_properties(tracelibcpp PROPERTIES VERSION ${tracelibcpp_VERSION_STRING}
                                   SOVERSION ${tracelibcpp_VERSION_MAJOR})
 endif (WITH_VERSION)
-
-# Library versions are on by default
-# i.e. so versions
-option(WITH_VERSION "Support for library versioning" ON)
 
 if (WITH_VERSION)
 set_target_properties(tracelibcpp PROPERTIES VERSION ${tracelibcpp_VERSION_STRING}
@@ -120,6 +127,12 @@ install(TARGETS tracelibcpp
 
 # Add google test
 if (WITH_TESTING)
+  file(
+    DOWNLOAD https://raw.githubusercontent.com/bilke/cmake-modules/72d804cfbcf82a1e171200c9c02748fa4b7ea033/CodeCoverage.cmake
+    ${CMAKE_BINARY_DIR}/CodeCoverage.cmake)
+
+  include("${CMAKE_BINARY_DIR}/CodeCoverage.cmake")
+  APPEND_COVERAGE_COMPILER_FLAGS()
   hunter_add_package(GTest)
   find_package(GTest CONFIG REQUIRED)
   add_executable(testrunner

@@ -38,6 +38,14 @@ make check
 Or with output
 CTEST_OUTPUT_ON_FAILURE=1 make check
 
+## Coverage
+Unit testing generates also coverage data. To get that in html format run commands, assuming
+you are building in `build` dir under the tracelibcpp
+```shell
+lcov -c --no-external --base-directory $(dirname $PWD)  --directory . --output-file cov.info
+genhtml cov.info
+```
+
 ## License
 
 See [LICENSES.txt](LICENSES.txt) file.
