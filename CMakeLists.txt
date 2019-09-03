@@ -42,7 +42,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 
 set (tracelibcpp_VERSION_MAJOR "0")
 set (tracelibcpp_VERSION_MINOR "0")
-set (tracelibcpp_VERSION_MICRO "3")
+set (tracelibcpp_VERSION_MICRO "4")
 set (tracelibcpp_VERSION_STRING
     "${tracelibcpp_VERSION_MAJOR}.${tracelibcpp_VERSION_MINOR}.${tracelibcpp_VERSION_MICRO}")
 
@@ -83,6 +83,7 @@ find_package(jaegertracing CONFIG REQUIRED)
 option(WITH_TESTING "Include using testing support" OFF)
 
 include_directories ("${PROJECT_SOURCE_DIR}/include/tracelibcpp")
+include_directories ("${PROJECT_SOURCE_DIR}/src")
 
 add_library(tracelibcpp SHARED
     src/tracelib.cpp
