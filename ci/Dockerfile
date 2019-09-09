@@ -23,13 +23,10 @@ FROM buildpack-deps:stretch
 RUN apt-get update && apt-get -q -y install \
   cmake \
   rpm \
-  rename \
-  alien
+  rename
 
 RUN mkdir -p /tmp/build
 COPY . /tmp/build
 RUN cd /tmp/build && ci/ci_build.sh
-
-RUN cd /tmp/build && ci/build_opentracing.sh
 
 ENTRYPOINT ["/tmp/build/ci/publish.sh"]

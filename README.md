@@ -39,6 +39,7 @@ By default a no-op tracer is created.
 
 cmake
 gcc/c++
+opentracing-cpp. **Note** you need to use same version of opentracing that tracelibcpp uses. Currently the version is 1.5.0
 
 ## Build
 mkdir build
