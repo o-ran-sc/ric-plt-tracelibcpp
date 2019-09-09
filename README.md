@@ -39,6 +39,7 @@ By default a no-op tracer is created.
 
 cmake
 gcc/c++
+opentracing-cpp version 1.5.0
 
 ## Build
 mkdir build
