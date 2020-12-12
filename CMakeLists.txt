@@ -44,7 +44,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 
 set (tracelibcpp_VERSION_MAJOR "0")
 set (tracelibcpp_VERSION_MINOR "0")
-set (tracelibcpp_VERSION_MICRO "5")
+set (tracelibcpp_VERSION_MICRO "6")
 set (tracelibcpp_VERSION_STRING
     "${tracelibcpp_VERSION_MAJOR}.${tracelibcpp_VERSION_MINOR}.${tracelibcpp_VERSION_MICRO}")
 
